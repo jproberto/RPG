@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossiê de Investigação: Jeremias Khonsu</title>
+    <style>
+        :root {
+            --bg-color: #0f1113;
+            --card-bg: #1a1d21;
+            --accent-color: #00bcd4;
+            --text-main: #e0e0e0;
+            --text-dim: #9ea7af;
+            --border-color: #333b42;
+            --danger-color: #cf6679;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .dossier-container {
+            width: 90%;
+            max-width: 900px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Cabeçalho */
+        header {
+            padding: 20px;
+            background: linear-gradient(90deg, #16191c 0%, #1a1d21 100%);
+            border-bottom: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            background-color: #2c3138;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .header-info h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-info p {
+            margin: 5px 0 0;
+            color: var(--accent-color);
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Sistema de Abas */
+        .tabs-nav {
+            display: flex;
+            background-color: #16191c;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .tab-button:hover {
+            background-color: #22272d;
+            color: var(--text-main);
+        }
+
+        .tab-button.active {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        /* Conteúdo */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h3 {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-item span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .list-style {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-style li {
+            padding: 8px 0;
+            border-bottom: 1px solid #252a30;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            background: #2c3138;
+            margin-left: 10px;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="dossier-container">
+    <header>
+        <div class="profile-pic"><img src="JeremiasKhonsu.png" style="width:100%"></div>
+        <div class="header-info">
+            <h1>Jeremias Almeida Khonsu</h1>
+            <p>ID: UFRJ-7742-ALPHA | STATUS: ATIVO</p>
+        </div>
+    </header>
+
+    <nav class="tabs-nav">
+        <button class="tab-button active" onclick="openTab(event, 'civil')">Identificação</button>
+        <button class="tab-button" onclick="openTab(event, 'academico')">Lattes</button>
+        <button class="tab-button" onclick="openTab(event, 'familiar')">Família & Redes</button>
+        <button class="tab-button" onclick="openTab(event, 'saude')">Saúde & Viagens</button>
+    </nav>
+
+    <div id="civil" class="tab-content active">
+        <h3>Dados Civis e Patrimônio</h3>
+        <div class="info-grid">
+            <div class="info-item"><label>Data de Nascimento</label><span>20/11 (71 anos)</span></div>
+            <div class="info-item"><label>Naturalidade</label><span>Rio de Janeiro - RJ</span></div>
+            <div class="info-item"><label>Endereço</label><span>Rua Stefan Zweig, Laranjeiras</span></div>
+            <div class="info-item"><label>Veículo</label><span>Toyota Corolla XEi (Prata)</span></div>
+        </div>
+        <h3 style="margin-top: 30px;">Registros Administrativos</h3>
+        <ul class="list-style">
+            <li><strong>Multa (Excesso de velocidade):</strong> Linha Vermelha, KM 04 - Sentido Ilha do Fundão.</li>
+            <li><strong>Multa (Estacionamento):</strong> Rua General Severiano, Botafogo.</li>
+            <li><strong>IPTU:</strong> Situação regular (Imóvel Próprio).</li>
+        </ul>
+    </div>
+
+    <div id="academico" class="tab-content">
+        <h3>Currículo Lattes (Resumo)</h3>
+        <ul class="list-style">
+            <li><strong>Doutorado:</strong> Egyptology - University of Chicago (Oriental Institute).
+                <br><small style="color:var(--text-dim)">Tese: Khonsu: O Viajante e a Cronometria Lunar no Império Novo.</small>
+            </li>
+            <li><strong>Mestrado:</strong> Arqueologia Clássica - UFRJ.</li>
+            <li><strong>Cargo Atual:</strong> Professor Titular da Faculdade de Letras (UFRJ).</li>
+            <li><strong>Atuação:</strong> Curador Ad honorem da Coleção Egípcia do Museu Nacional.</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">Última atualização do sistema: 6 meses atrás.</p>
+    </div>
+
+    <div id="familiar" class="tab-content">
+        <h3>Núcleo Familiar</h3>
+        <div class="info-grid">
+            <div class="info-item"><label>Cônjuge</label><span>Nésia Abreu dos Santos Khonsu (70 anos)</span></div>
+            <div class="info-item"><label>Casamento</label><span>24/01 (Bodas de Ouro recentes)</span></div>
+            <div class="info-item"><label>Filhos</label><span>Nenhum registro encontrado</span></div>
+        </div>
+        <h3 style="margin-top: 30px;">Atividade Digital</h3>
+        <p><strong>Facebook:</strong> Perfil público. Fotos recentes de almoços dominicais no <em>Jockey Club Brasileiro</em> (Gávea) e confraternização do aniversário no último dia 29.</p>
+        <p><strong>LinkedIn:</strong> Perfil de Jeremias Khonsu. 500+ conexões. Sem postagens recentes.</p>
+    </div>
+
+    <div id="saude" class="tab-content">
+        <h3>Prontuário & Logística</h3>
+        <div class="info-grid">
+            <div class="info-item"><label>Tipo Sanguíneo</label><span>A- (Negativo)</span></div>
+            <div class="info-item"><label>Medicação</label><span>Losartana (Hipertensão)</span></div>
+            <div class="info-item"><label>Alergias</label><span>Poeira, Mofo, Ácidos de Conservação</span></div>
+        </div>
+        <h3 style="margin-top: 30px;">Histórico de Viagens (Últimos 24 meses)</h3>
+        <ul class="list-style">
+            <li>Rio de Janeiro (GIG) ➔ Cairo (CAI) via Paris (CDG). <span class="tag">AIR FRANCE</span></li>
+            <li>Cairo (CAI) ➔ Luxor (LXR). <span class="tag">EGYPTAIR</span></li>
+        </ul>
+        <p><strong>Vacinação:</strong> Febre Amarela e Tétano atualizadas para fins de emissão de visto.</p>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
